@@ -52,9 +52,9 @@ impl SafepayGateway {
 
     fn checkout_base(&self) -> &'static str {
         if self.environment == "production" {
-            "https://www.getsafepay.com/components"
+            "https://getsafepay.com/checkout/pay"
         } else {
-            "https://sandbox.api.getsafepay.com/components"
+            "https://sandbox.api.getsafepay.com/checkout/pay"
         }
     }
 }
