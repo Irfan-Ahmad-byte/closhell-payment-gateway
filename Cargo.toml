@@ -1,0 +1,30 @@
+[package]
+name = "closhell-payment-gateway"
+version = "0.1.0"
+edition = "2021"
+description = "A plug-and-play payment gateway interface for Rust. Supports multiple gateways (Stripe, PayFast, etc.) with a unified API."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/closhell/closhell-payment-gateway"
+keywords = ["payment", "gateway", "stripe", "payfast", "billing"]
+categories = ["web-programming", "development-tools"]
+
+[dependencies]
+async-trait = "0.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tracing = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+rust_decimal = "1"
+reqwest = { version = "0.12", features = ["json"] }
+hmac = "0.12"
+sha2 = "0.10"
+base64 = "0.22"
+hex = "0.4"
+urlencoding = "2.1"
+async-stripe = { version = "0.41.0", features = ["runtime-tokio-hyper"], optional = true }
+
+[features]
+default = ["stripe"]
+stripe = ["dep:async-stripe"]
